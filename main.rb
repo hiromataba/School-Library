@@ -61,3 +61,7 @@ class App
     puts '6 - List all rentals for a given person id'
     puts '7 - Exit'
   end
+
+  def list_books
+    @books.each { |book| puts book }
+  end
