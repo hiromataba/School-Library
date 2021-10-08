@@ -14,7 +14,7 @@ class App
   end
 
   def run
-    puts 'Welcome to School Library App!'
+    puts 'Welcome to School Library App! 😀'
 
     loop do
       print_options
@@ -26,7 +26,7 @@ class App
       handle_option option
     end
 
-    puts 'Thank you for using this app!'
+    puts 'Thank you for using this app! 😊'
   end
 
   private
@@ -46,20 +46,20 @@ class App
     when '6'
       list_rentals_by_person_id
     else
-      puts 'That is not a valid option'
+      puts 'That is not a valid option ❌'
     end
   end
 
   def print_options
     puts
-    puts 'Please choose an option by entering a number:'
-    puts '1 - List all books'
-    puts '2 - List all people'
-    puts '3 - Create a person'
-    puts '4 - Create a book'
-    puts '5 - Create a rental'
-    puts '6 - List all rentals for a given person id'
-    puts '7 - Exit'
+    puts 'Please choose an option by entering a number: 😊'
+    puts '1 - List all books 📖 '
+    puts '2 - List all people 👪'
+    puts '3 - Create a person 👨'
+    puts '4 - Create a book 📖 '
+    puts '5 - Create a rental 🏠'
+    puts '6 - List all rentals for a given person id 👨'
+    puts '7 - Exit 🚫'
   end
 
   def list_books
@@ -71,7 +71,7 @@ class App
   end
 
   def create_person
-    print 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
+    print 'Do you want to create a student (1) or a teacher (2) ❓ [Input the number]: '
     option = gets.chomp
 
     case option
@@ -80,11 +80,11 @@ class App
     when '2'
       create_teacher
     else
-      puts 'That is not a valid input'
+      puts 'That is not a valid input ❌'
       return
     end
 
-    puts 'Person created successfully'
+    puts 'Person created successfully ✅'
   end
 
   def create_student
@@ -94,7 +94,7 @@ class App
     print 'Name: '
     name = gets.chomp
 
-    print 'Has parent permission? [Y/N]: '
+    print 'Has parent permission ❓ [Y/N]: '
     parent_permission = gets.chomp.downcase == 'y'
 
     student = Student.new(name: name, age: age, parent_permission: parent_permission, classroom: @classroom)
@@ -125,7 +125,7 @@ class App
     book = Book.new(title, author)
     @books.push(book)
 
-    puts 'Book created successfully'
+    puts 'Book created successfully ✅'
   end
 
   def create_rental
@@ -147,7 +147,7 @@ class App
     rental = Rental.new(date, @books[book_idx], @people[person_idx])
     @rentals.push(rental)
 
-    puts 'Rental created successfully'
+    puts 'Rental created successfully ✅'
   end
 
   def list_rentals_by_person_id
