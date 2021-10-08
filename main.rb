@@ -12,3 +12,19 @@ class App
     @books = []
     @rentals = []
   end
+
+  def run
+    puts 'Welcome to School Library App!'
+
+    loop do
+      print_options
+
+      option = gets.chomp
+
+      break if option == '7'
+
+      handle_option option
+    end
+
+    puts 'Thank you for using this app!'
+  end
