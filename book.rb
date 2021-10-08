@@ -7,7 +7,7 @@ class Book
     @rentals = []
   end
 
-  def add_rental(rental)
-    @rentals << rental
+  def to_s
+    "Title: \"#{@title}\", Author: #{author}"
   end
 end
