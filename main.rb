@@ -100,3 +100,17 @@ class App
     student = Student.new(name: name, age: age, parent_permission: parent_permission, classroom: @classroom)
     @people.push(student)
   end
+
+  def create_teacher
+    print 'Age: '
+    age = gets.chomp
+
+    print 'Name: '
+    name = gets.chomp
+
+    print 'Specialization: '
+    specialization = gets.chomp
+
+    teacher = Teacher.new(name: name, age: age, specialization: specialization)
+    @people.push(teacher)
+  end
