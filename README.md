@@ -31,6 +31,12 @@
 - Twitter: [@hiromataba](https://twitter.com/MatabaHiro)
 - LinkedIn: [@hiromataba](https://www.linkedin.com/in/aganzemataba/)
 
+👤 **Tolib**
+
+- GitHub: [@toliboff](https://github.com/toliboff)
+- Twitter: [@toliboff](https://twitter.com/toliboff)
+- LinkedIn: [Tolibjon Tolibov](https://linkedin.com/in/toliboff)
+
 ## Contributing
 
 Contributions, issues, and feature requests are welcome!
