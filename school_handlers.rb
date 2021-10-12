@@ -101,5 +101,4 @@ module SchoolHandlers
 
     @rentals.each { |rental| puts rental if rental.person.id == id.to_i }
   end
-
 end
