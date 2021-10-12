@@ -92,6 +92,14 @@ module SchoolHandlers
 
     puts 'Rental created successfully ✅'
   end
-  
+
+  def list_rentals_by_person_id
+    print 'ID of person: '
+    id = gets.chomp
+
+    puts 'Rentals:'
+
+    @rentals.each { |rental| puts rental if rental.person.id == id.to_i }
+  end
 
 end
