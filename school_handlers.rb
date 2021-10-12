@@ -44,15 +44,18 @@ module SchoolHandlers
     @people.push(student)
   end
 
-  def print_options
-    puts
-    puts 'Please choose an option by entering a number: 😊'
-    puts '1 - List all books 📖 '
-    puts '2 - List all people 👪'
-    puts '3 - Create a person 👨'
-    puts '4 - Create a book 📖 '
-    puts '5 - Create a rental 🏠'
-    puts '6 - List all rentals for a given person id 👨'
-    puts '7 - Exit 🚫'
+  def create_teacher
+    print 'Age: '
+    age = gets.chomp
+
+    print 'Name: '
+    name = gets.chomp
+
+    print 'Specialization: '
+    specialization = gets.chomp
+
+    teacher = Teacher.new(name: name, age: age, specialization: specialization)
+    @people.push(teacher)
   end
+  
 end
