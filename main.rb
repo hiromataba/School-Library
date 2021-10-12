@@ -26,8 +26,6 @@ class App
     puts 'Thank you for using this app! 😊'
   end
 
-  private
-
   def handle_option(option)
     case option
     when '1'
