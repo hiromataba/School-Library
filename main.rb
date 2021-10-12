@@ -2,6 +2,7 @@ require_relative 'classroom'
 require_relative 'school_handlers'
 
 class App
+  include SchoolHandlers
   def initialize
     @classroom = Classroom.new('Full-stack Devs')
     @people = []
