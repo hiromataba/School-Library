@@ -106,6 +106,7 @@ module SchoolHandlers
   def save_data
     File.open('books.json', 'w') { |f| f.write JSON.generate(@books) }
     File.open('people.json', 'w') { |f| f.write JSON.generate(@people) }
+    File.open('rentals.json', 'w') { |f| f.write JSON.generate(@rentals) }
   end
 
   def parse_books
@@ -141,5 +142,22 @@ module SchoolHandlers
       end
       @people.last.id = people['id']
     end
+  end
+
+  def parse_rentals
+    file = 'rentals.json'
+
+    if File.exist? file
+      JSON.parse(File.read(file)).map do |rental|
+        book = @books.find { |book| book.title == rental['book_title'] }
+        person = @people.find { |person| person.id == rental['person_id'] }
+ 
+        rental = Rental.new(rental['date'], book, person)
+        @rentals.push(rental)
+      end
+    else
+      []
+    end
+
   end
 end
