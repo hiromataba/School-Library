@@ -67,6 +67,7 @@ def main
   app = App.new
   app.parse_books
   app.parse_people
+  app.parse_rentals
   app.run
 end
 
