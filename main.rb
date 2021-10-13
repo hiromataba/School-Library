@@ -17,7 +17,7 @@ class App
       print_options
 
       option = gets.chomp
-       
+
       if option == '7'
         save_data
         break

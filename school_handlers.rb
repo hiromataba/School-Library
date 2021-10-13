@@ -110,13 +110,13 @@ module SchoolHandlers
 
   def parse_books
     file = 'books.json'
-  
+
     if File.exist? file
-        data = JSON.parse(File.read(file), create_additions: true)
-        data.each do |book|
-          @books.push(Book.new(book['title'], book['author']))
-        end
-      else
+      data = JSON.parse(File.read(file), create_additions: true)
+      data.each do |book|
+        @books.push(Book.new(book['title'], book['author']))
+      end
+    else
       []
     end
   end
@@ -126,24 +126,20 @@ module SchoolHandlers
     return [] unless File.exist? file
 
     JSON.parse(File.read(file)).map do |people|
-      if people['json_class']=='Student'
+      if people['json_class'] == 'Student'
         student = Student.new(name: people['name'],
                               age: people['age'],
                               parent_permission: people['permission'],
-                              classroom: @classroom.label,
-                              )
+                              classroom: @classroom.label)
         @people.push(student)
-        @people.last.id=people['id']
       else
         teacher = Teacher.new(age: people['age'],
                               name: people['name'],
-                              specialization: people['specialization']
-                              )
+                              specialization: people['specialization'])
         @people.push(teacher)
-        @people.last.id=people['id']
 
       end
+      @people.last.id = people['id']
     end
   end
-
 end

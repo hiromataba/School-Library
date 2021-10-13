@@ -15,12 +15,11 @@ class Book
     {
       JSON.create_id => self.class.name,
       :title => @title,
-      :author => @author,
+      :author => @author
     }.to_json(*args)
   end
 
   def self.from_json(object)
     new(object['title'], object['author'])
-  end  
-
+  end
 end
