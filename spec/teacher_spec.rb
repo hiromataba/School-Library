@@ -1,0 +1,1 @@
+puts 'Test for teacher'
