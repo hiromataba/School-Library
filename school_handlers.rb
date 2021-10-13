@@ -1,3 +1,5 @@
+# rubocop:disable Metrics/ModuleLength
+require 'json'
 require_relative 'person'
 require_relative 'teacher'
 require_relative 'student'
@@ -101,4 +103,62 @@ module SchoolHandlers
 
     @rentals.each { |rental| puts rental if rental.person.id == id.to_i }
   end
+
+  def save_data
+    File.open('books.json', 'w') { |f| f.write JSON.generate(@books) }
+    File.open('people.json', 'w') { |f| f.write JSON.generate(@people) }
+    File.open('rentals.json', 'w') { |f| f.write JSON.generate(@rentals) }
+  end
+
+  def parse_books
+    file = 'books.json'
+
+    if File.exist? file
+      data = JSON.parse(File.read(file), create_additions: true)
+      data.each do |book|
+        @books.push(Book.new(book['title'], book['author']))
+      end
+    else
+      []
+    end
+  end
+
+  def parse_people
+    file = 'people.json'
+    return [] unless File.exist? file
+
+    JSON.parse(File.read(file)).map do |people|
+      if people['json_class'] == 'Student'
+        student = Student.new(name: people['name'],
+                              age: people['age'],
+                              parent_permission: people['permission'],
+                              classroom: @classroom.label)
+        @people.push(student)
+      else
+        teacher = Teacher.new(age: people['age'],
+                              name: people['name'],
+                              specialization: people['specialization'])
+        @people.push(teacher)
+
+      end
+      @people.last.id = people['id']
+    end
+  end
+
+  def parse_rentals
+    file = 'rentals.json'
+
+    if File.exist? file
+      JSON.parse(File.read(file)).map do |rental|
+        book = @books.find { |rental_book| rental_book.title == rental['book_title'] }
+        person = @people.find { |rental_person| rental_person.id == rental['person_id'] }
+
+        rental = Rental.new(rental['date'], book, person)
+        @rentals.push(rental)
+      end
+    else
+      []
+    end
+  end
 end
+# rubocop:enable Metrics/ModuleLength

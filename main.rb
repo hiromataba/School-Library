@@ -18,7 +18,10 @@ class App
 
       option = gets.chomp
 
-      break if option == '7'
+      if option == '7'
+        save_data
+        break
+      end
 
       handle_option option
     end
@@ -26,6 +29,7 @@ class App
     puts 'Thank you for using this app! 😊'
   end
 
+  # rubocop:disable Metrics/CyclomaticComplexity
   def handle_option(option)
     case option
     when '1'
@@ -40,10 +44,13 @@ class App
       create_rental
     when '6'
       list_rentals_by_person_id
+    when '7'
+      save_data
     else
       puts 'That is not a valid option ❌'
     end
   end
+  # rubocop:enable Metrics/CyclomaticComplexity
 
   def print_options
     puts
@@ -60,6 +67,9 @@ end
 
 def main
   app = App.new
+  app.parse_books
+  app.parse_people
+  app.parse_rentals
   app.run
 end
 
