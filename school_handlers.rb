@@ -1,3 +1,4 @@
+# rubocop:disable Metrics/ModuleLength
 require 'json'
 require_relative 'person'
 require_relative 'teacher'
@@ -149,15 +150,15 @@ module SchoolHandlers
 
     if File.exist? file
       JSON.parse(File.read(file)).map do |rental|
-        book = @books.find { |book| book.title == rental['book_title'] }
-        person = @people.find { |person| person.id == rental['person_id'] }
- 
+        book = @books.find { |rental_book| rental_book.title == rental['book_title'] }
+        person = @people.find { |rental_person| rental_person.id == rental['person_id'] }
+
         rental = Rental.new(rental['date'], book, person)
         @rentals.push(rental)
       end
     else
       []
     end
-
   end
 end
+# rubocop:enable Metrics/ModuleLength

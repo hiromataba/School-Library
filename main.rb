@@ -29,6 +29,7 @@ class App
     puts 'Thank you for using this app! 😊'
   end
 
+  # rubocop:disable Metrics/CyclomaticComplexity
   def handle_option(option)
     case option
     when '1'
@@ -49,6 +50,7 @@ class App
       puts 'That is not a valid option ❌'
     end
   end
+  # rubocop:enable Metrics/CyclomaticComplexity
 
   def print_options
     puts
