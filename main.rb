@@ -17,8 +17,11 @@ class App
       print_options
 
       option = gets.chomp
-
-      break if option == '7'
+       
+      if option == '7'
+        save_data
+        break
+      end
 
       handle_option option
     end
@@ -40,6 +43,8 @@ class App
       create_rental
     when '6'
       list_rentals_by_person_id
+    when '7'
+      save_data
     else
       puts 'That is not a valid option ❌'
     end
@@ -60,6 +65,7 @@ end
 
 def main
   app = App.new
+  app.get_books
   app.run
 end
 
