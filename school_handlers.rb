@@ -105,9 +105,10 @@ module SchoolHandlers
 
   def save_data
     File.open('books.json', 'w') { |f| f.write JSON.generate(@books) }
+    File.open('people.json', 'w') { |f| f.write JSON.generate(@people) }
   end
 
-  def get_books
+  def parse_books
     file = 'books.json'
   
     if File.exist? file
@@ -119,4 +120,30 @@ module SchoolHandlers
       []
     end
   end
+
+  def parse_people
+    file = 'people.json'
+    return [] unless File.exist? file
+
+    JSON.parse(File.read(file)).map do |people|
+      if people['json_class']=='Student'
+        student = Student.new(name: people['name'],
+                              age: people['age'],
+                              parent_permission: people['permission'],
+                              classroom: @classroom.label,
+                              )
+        @people.push(student)
+        @people.last.id=people['id']
+      else
+        teacher = Teacher.new(age: people['age'],
+                              name: people['name'],
+                              specialization: people['specialization']
+                              )
+        @people.push(teacher)
+        @people.last.id=people['id']
+
+      end
+    end
+  end
+
 end
