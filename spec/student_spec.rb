@@ -20,4 +20,16 @@ describe Student do
     end
   end
 
+  describe '#classroom' do
+    it "returns classroom of student" do
+      expect(@student.classroom.label).to eql "JavaScript"
+    end
+  end
+
+  describe '#to_s' do
+    it "returns student info" do
+      expect(@student.to_s).to be_kind_of String
+    end
+  end
+
 end
