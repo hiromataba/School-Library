@@ -24,4 +24,16 @@ describe Person do
     end
   end
 
+  describe '#can_use_services?' do
+    it "returns boolean value: true" do
+      expect(@person1.can_use_services?).to be true
+    end
+  end
+
+  describe '#can_use_services?' do
+    it "returns boolean value: false" do
+      expect(@person2.can_use_services?).to be false
+    end
+  end
+
 end
