@@ -5,9 +5,9 @@ describe Classroom do
     @classrrom = Classroom.new(label: 'Full-stack Devs')
   end
 
-  describe '#new' do
-    it 'takes parameter and returns a classroom' do
-      expect(@classroom).to be_an_instance_of(Classroom)
+  describe '#label' do
+    it 'returns correct label' do
+      expect(@classroom.label).to eql 'Full-stack Devs'
     end
   end
 end
