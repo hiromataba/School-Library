@@ -23,5 +23,9 @@ describe Book do
     end
   end
 
-  
+  describe '#to_s' do
+    it "returns correct value from to_s method" do
+      expect(@book.to_s).to eql 'Title: "Martin Eden", Author: Jack London'
+    end
+  end
 end
