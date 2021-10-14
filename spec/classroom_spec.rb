@@ -21,7 +21,7 @@ describe Classroom do
 
   describe '#label' do
     it 'returns the right label' do
-      expect(@classroom.label).to eq 'Microverse'
+      expect(@classroom.label).to eq 'Full-stack Devs'
     end
   end
 
