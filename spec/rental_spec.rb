@@ -4,13 +4,12 @@ require_relative '../book'
 
 describe Rental do
   before :each do
-    @person = Student.new(age: 17, classroom:'', name: 'Bob')
+    @person = Student.new(age: 17, classroom: '', name: 'Bob')
     @book = Book.new('Martin Eden', 'Jack London')
     @rental = Rental.new('2021/10/10', @book, @person)
   end
 
   describe '#new' do
-   
     it 'takes 3 parameters and returns a Rental object' do
       expect(@rental).to be_an_instance_of Rental
     end
