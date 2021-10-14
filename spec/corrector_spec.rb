@@ -6,9 +6,8 @@ describe Corrector do
   end
 
   describe '#correct_name' do
-    it "returns corrected name uppercased first letter" do
-      expect(@corrector.correct_name('abrAHAM')).to eql "Abraham"
+    it 'returns corrected name uppercased first letter' do
+      expect(@corrector.correct_name('abrAHAM')).to eql 'Abraham'
     end
   end
-
 end
