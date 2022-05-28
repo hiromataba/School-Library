@@ -2,7 +2,7 @@
 
 # School LIbrary App
 
-> In this project, we will start building our school library app. In this initial step, we will implement the classes to represent students and teachers.
+> In this project, we will built our school library app. In this initial step, we will implement the classes to represent students and teachers.
 
 ![image](https://user-images.githubusercontent.com/75126481/136585994-7d547b88-6002-48d7-85fa-aeae01881897.png)
 
