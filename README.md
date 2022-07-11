@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# School LIbrary App
+# School LIbrary App.
 
 > In this project, we will built our school library app. In this initial step, we will have to implement the classes to represent students and teachers.
 
